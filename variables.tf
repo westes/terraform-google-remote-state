@@ -5,7 +5,7 @@ variable "bucket_name" {
 
 variable "prefix" {
   description = "The name of the Blob used to retrieve/store Terraform's State file inside the Storage Container."
-  default     = "global/terrform.tfstate"
+  default     = "terraform.tfstate"
 }
 
 variable "name_prefix" {
