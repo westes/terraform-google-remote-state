@@ -43,11 +43,10 @@ resource "google_storage_bucket" "state" {
 
 ################# AUTOMATING REMOTE STATE LOCKING
 data "template_file" "remote_state" {
-  template = "${file("${path.module}/templates/remote_state.tpl")}"
+  template = file("${path.module}/templates/remote_state.tpl")
   vars = {
-    bucket_name        = google_storage_bucket.state.name
-    prefix             = var.prefix
-    credentials_config = "sa.json"
+    bucket_name = google_storage_bucket.state.name
+    prefix      = var.prefix
   }
 }
 
