@@ -29,11 +29,13 @@ locals {
 
 #################### GCS
 resource "google_storage_bucket" "state" {
-  name          = local.bucket_name
-  location      = var.location
-  project       = var.project_id
-  force_destroy = var.force_destroy
-  labels        = var.labels
+  name     = local.bucket_name
+  location = var.location
+  project  = var.project_id
+
+  force_destroy            = var.force_destroy
+  labels                   = var.labels
+  public_access_prevention = "enforced"
 
   versioning {
     enabled = var.enable_versioning
